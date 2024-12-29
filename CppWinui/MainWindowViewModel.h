@@ -10,28 +10,10 @@ namespace winrt::CppWinui::implementation
     {
         MainWindowViewModel() = default;
 
-        int32_t MyProperty();
-        void MyProperty(int32_t value);
-    private:
-		int32_t m_myProperty{ 0 };
-    public:
-        event_token PropertyChanged(Microsoft::UI::Xaml::Data::PropertyChangedEventHandler const& value) {
-            return m_propertyChanged.add(value);
-        }
-        void PropertyChanged(event_token const& token) {
-            m_propertyChanged.remove(token);
-        }
-    private:
-        event<Microsoft::UI::Xaml::Data::PropertyChangedEventHandler> m_propertyChanged; 
-        void RaisePropertyChanged(hstring const& propertyName) {
-            m_propertyChanged(*this, Microsoft::UI::Xaml::Data::PropertyChangedEventArgs(propertyName));
-        }
+        NotifyChangedProperty(int32_t, MyProperty);
+        
+        Bindable
     };
 }
 
-namespace winrt::CppWinui::factory_implementation
-{
-    struct MainWindowViewModel : MainWindowViewModelT<MainWindowViewModel, implementation::MainWindowViewModel>
-    {
-    };
-}
+FactoryDefinition(MainWindowViewModel);

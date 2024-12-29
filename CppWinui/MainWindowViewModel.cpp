@@ -8,16 +8,4 @@
 
 namespace winrt::CppWinui::implementation
 {
-    int32_t MainWindowViewModel::MyProperty()
-    {
-		return m_myProperty;
-    }
-
-    void MainWindowViewModel::MyProperty(int32_t value)
-    {
-        if (m_myProperty != value) {
-            m_myProperty = value; 
-            RaisePropertyChanged(L"MyProperty");
-        };
-    }
 }
