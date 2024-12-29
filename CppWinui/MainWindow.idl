@@ -1,0 +1,12 @@
+import "MainWindowViewModel.idl";
+
+namespace CppWinui
+{
+    [default_interface]
+    runtimeclass MainWindow : Microsoft.UI.Xaml.Window
+    {
+        MainWindow();
+        Int32 MyProperty;
+        MainWindowViewModel ViewModel{ get; };
+    }
+}

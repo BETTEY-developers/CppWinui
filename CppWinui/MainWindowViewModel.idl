@@ -1,0 +1,10 @@
+namespace CppWinui
+{
+    [bindable]
+    [default_interface]
+	runtimeclass MainWindowViewModel : Windows.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        MainWindowViewModel();
+        Int32 MyProperty;
+    }
+}
